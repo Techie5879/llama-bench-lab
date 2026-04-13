@@ -1,3 +1,12 @@
 [submodule "llama.cpp"]
 	path = llama.cpp
 	url = https://github.com/ggerganov/llama.cpp.git
+[submodule "omlx"]
+	path = omlx
+	url = https://github.com/jundot/omlx
+[submodule "vllm"]
+	path = vllm
+	url = https://github.com/vllm-project/vllm
+[submodule "transformers"]
+	path = transformers
+	url = https://github.com/huggingface/transformers
