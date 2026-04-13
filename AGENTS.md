@@ -27,6 +27,7 @@ This repo is for benchmarking various small experiments with local LLMs to find 
 # How to work in Current repo
 - First step before any task: determine whether you are on macOS (Metal) or Linux (CUDA) — this dictates available backends, flags, and tooling.
 - Scripts in this repo should be simple and self-contained. Each script demonstrates one thing. Do not modularize, abstract, or build shared libraries — this is a benchmarking and experimentation repo, not a product.
+- Only create final reports and explainers in `reports/` when the user explicitly asks for them.
 
 Treat `llama.cpp/` as upstream: do not edit it for one-off experiments; bump the submodule commit when you intentionally pin a new version.
 
@@ -38,7 +39,7 @@ Treat `llama.cpp/` as upstream: do not edit it for one-off experiments; bump the
 - Always clean up all severs/processes spun up after done
 - Logging is a first class citizen of the repo. Always log raw responses, parsed responses, and performance metrics.
 - Always run benchmarking scripts/long running scripts with `tee` so that logs can be preserved and inspected later on.
-- Any new information that you had to explore for in llama.cpp git submodule - that you think is useful/explicitly told by the user as useful - needs to be documented in docs/ and the references here updated for next time easy use and acces.
+- Important bugs, gotchas, and useful findings should be documented in `docs/` for future reference, including cases where the model got stuck, needed user intervention, or tried multiple wrong fixes.
 - NO FALLBACK behavior. No catching of errors, no silencing of errors. When porting anything to something else/new data format/breaking changes -- DO NOT try to fallback to old behavior/keeping legacy support.
 - If you really think something needs to be fallen back to/you want to try to catch something and fallback -- ask the user using the `question` tool. DO NOT fallback. Raising full errors and stack trace is much better than falling back.
 - Raising errors at EXACTLY where they occur is very important. Exception handling is not needed.
