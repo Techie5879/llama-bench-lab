@@ -25,6 +25,8 @@ This repo is for benchmarking various small experiments with local LLMs to find 
 
 
 # How to work in Current repo
+- First step before any task: determine whether you are on macOS (Metal) or Linux (CUDA) — this dictates available backends, flags, and tooling.
+
 Treat `llama.cpp/` as upstream: do not edit it for one-off experiments; bump the submodule commit when you intentionally pin a new version.
 
 - llama.cpp/docs is a useful resource
